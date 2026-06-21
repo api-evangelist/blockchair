@@ -1,0 +1,72 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Blockchair
+providerId: blockchair
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Blockchain
+- Cryptocurrency
+- Explorer
+- On-Chain Data
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Blockchair enforces a daily call quota plus per-second and per-minute rate
+  limits. Without a key, usage is capped at roughly 1440 requests per day (about
+  one per minute on average) with a hard ceiling of 30 requests per minute. A
+  soft limit of about 5 requests per second applies to both free and paid plans,
+  enabled manually by admins only when servers are under very high load. Paid
+  Enterprise plans raise the daily call budget. Each call also has an internal
+  request-cost weighting, so heavier queries draw down the daily quota faster.
+notes: >-
+  Soft per-second throttling is applied at the operator's discretion during high
+  load. Verify current thresholds against blockchair.com/api/docs during
+  reconciliation.
+sources:
+- https://blockchair.com/api/docs
+- https://blockchair.com/api
+- https://blockchair.com/api/plans
+responseCodes:
+  throttled: 402
+limits:
+- name: Daily Requests (no key)
+  scope: ip
+  metric: requests
+  limit: 1440 per day
+  notes: Personal/testing use without a key; about one request per minute on average.
+- name: Requests Per Minute (no key)
+  scope: ip
+  metric: requests
+  limit: 30 per minute
+  notes: Hard ceiling on the free, no-key tier.
+- name: Requests Per Second (soft)
+  scope: account
+  metric: requests
+  limit: ~5 per second
+  notes: Soft limit on both free and paid plans, enabled manually under very high server load.
+- name: Daily Calls (paid)
+  scope: account
+  metric: requests
+  limit: 25000-100000 per day
+  notes: Set by the selected Enterprise plan; custom plans can exceed this.
+- name: Request Cost
+  scope: account
+  metric: request_units
+  limit: weighted per call
+  notes: >-
+    Each response carries a request_cost in context; heavier queries consume more
+    of the daily call budget than the nominal one-call-per-request.
+policies:
+- name: Tiered Limits
+  description: Daily call budgets rise from the free tier through Enterprise and custom plans.
+- name: Load-Based Throttling
+  description: The ~5 rps soft limit is toggled by admins only during periods of very high server load.
+- name: Backoff Strategy
+  description: Clients should throttle to stay under per-minute limits and back off when throttled.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Blockchair
+providerId: blockchair
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Blockchain
+- Cryptocurrency
+- Explorer
+- On-Chain Data
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Blockchair API spend. Blockchair bills via flat monthly
+  Enterprise subscriptions sized by calls per day (25k/50k/75k/100k at
+  $250/$500/$750/$1000 per month), plus a free no-key tier for personal and
+  testing use and custom plans on request. Each API call carries an internal
+  request-cost weighting, so heavier dashboard, raw, and database queries draw
+  down the daily call budget faster than lightweight stats calls.
+notes: >-
+  Subscription prices and daily-call thresholds are subject to change; verify
+  against blockchair.com/api/plans during reconciliation. Payments are processed
+  via PayPal.
+sources:
+- https://blockchair.com/api/plans
+- https://blockchair.com/api
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Blockchair
+serviceCategory: Blockchain and Web3
+billingModel:
+  pricingCategory: Subscription-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+focusColumns:
+  ServiceName: Blockchair API
+  ServiceCategory: Blockchain and Web3
+  ProviderName: Blockchair
+  PublisherName: Blockchair
+  InvoiceIssuerName: Blockchair
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Subscription-Based
+meters:
+- name: api_calls
+  description: API calls made against the plan's daily quota.
+  unit: requests
+  aggregation: sum
+  dimensions:
+  - account
+  - api
+  - chain
+- name: request_cost
+  description: >-
+    Internal request-cost units consumed; heavier queries consume more of the
+    daily call budget than the nominal one unit per request.
+  unit: request_units
+  aggregation: sum
+  dimensions:
+  - account
+  - endpoint
+- name: daily_quota
+  description: Daily call allowance set by the selected Enterprise plan.
+  unit: requests
+  aggregation: max
+  dimensions:
+  - account
+  - plan
+principles:
+- name: Visibility
+  description: Track api_calls and the request_cost returned in each response context against the plan's daily quota.
+- name: Allocation
+  description: Use separate API keys per workload/team and map call volume to internal cost centers.
+- name: Optimization
+  description: Batch lookups (addresses, transactions, blocks accept up to 100 ids per call), prefer lightweight stats over heavy database queries, and right-size the daily-call plan to actual demand.
+- name: Accountability
+  description: Assign owners per key, review monthly call burn against the chosen plan, and upgrade or move to a custom plan before sustained overage.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

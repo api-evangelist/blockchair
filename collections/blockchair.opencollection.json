@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{apiKey}}",
+      "in": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get blockchain statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/stats"
+          },
+          "docs": "Returns overall statistics for a single blockchain."
+        },
+        {
+          "info": {
+            "name": "Get multi-chain statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/stats"
+          },
+          "docs": "Returns aggregated statistics across all supported blockchains."
+        },
+        {
+          "info": {
+            "name": "Get cross-chain token statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/cross-chain/usdt/stats"
+          },
+          "docs": "Returns statistics for a cross-chain token across the chains it is issued on."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Address Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an address dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/address/1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa"
+          },
+          "docs": "Returns balance, transaction list, and aggregated stats for a single address."
+        },
+        {
+          "info": {
+            "name": "Get a multi-address dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/addresses/{addresses}"
+          },
+          "docs": "Returns combined data for a comma-separated set of up to 100 addresses."
+        },
+        {
+          "info": {
+            "name": "Get an extended public key dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/xpub/{extended_key}"
+          },
+          "docs": "Returns balance and transaction data derived from an extended public key."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transaction Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a transaction dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/transaction/{hash}"
+          },
+          "docs": "Returns a parsed view of a single transaction."
+        },
+        {
+          "info": {
+            "name": "Get a multi-transaction dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/transactions/{hashes}"
+          },
+          "docs": "Returns parsed views for a comma-separated set of transaction hashes."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Block Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a block dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/block/700000"
+          },
+          "docs": "Returns a parsed view of a single block by height or hash."
+        },
+        {
+          "info": {
+            "name": "Get a multi-block dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/dashboards/blocks/{ids}"
+          },
+          "docs": "Returns parsed views for a comma-separated set of block heights."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Raw Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get raw block data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/raw/block/700000"
+          },
+          "docs": "Returns raw node-level data for a block by height or hash."
+        },
+        {
+          "info": {
+            "name": "Get raw transaction data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/raw/transaction/{hash}"
+          },
+          "docs": "Returns raw node-level data for a transaction by hash."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Outputs Database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query the outputs database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/outputs?q=is_spent(false)&s=value(desc)&limit=10"
+          },
+          "docs": "SQL-like query over the outputs table on Bitcoin-like chains."
+        },
+        {
+          "info": {
+            "name": "Query the blocks database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/blocks?limit=10"
+          },
+          "docs": "SQL-like query over the blocks table."
+        },
+        {
+          "info": {
+            "name": "Query the transactions database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/bitcoin/transactions?limit=10"
+          },
+          "docs": "SQL-like query over the transactions table."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Broadcast",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Broadcast a signed transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.blockchair.com/bitcoin/push/transaction",
+            "body": {
+              "type": "urlencoded",
+              "data": [
+                {
+                  "key": "data",
+                  "value": "{signed_raw_transaction_hex}"
+                }
+              ]
+            }
+          },
+          "docs": "Relays a signed, raw transaction to the network of the selected chain."
+        }
+      ]
+    }
+  ]
+}

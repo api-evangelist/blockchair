@@ -1,0 +1,147 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Blockchair
+providerId: blockchair
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: true
+tags:
+- Blockchain
+- Cryptocurrency
+- Explorer
+- On-Chain Data
+- Plans
+description: >-
+  Blockchair offers a free tier for personal use and testing (no key required up
+  to 1440 requests per day, roughly one request per minute on average) and paid
+  Enterprise API plans metered by calls per day, billed monthly. All plans grant
+  access to every featured blockchain. Custom plans with unlimited requests,
+  dedicated infrastructure, or specialized support are available on request.
+  Each API call also carries an internal request-cost weighting, where heavier
+  queries consume more of the daily call budget.
+notes: >-
+  Prices and daily-call thresholds are as published on the Blockchair API plans
+  page; verify current rates against blockchair.com/api/plans during
+  reconciliation. Payments are processed via PayPal.
+sources:
+- https://blockchair.com/api
+- https://blockchair.com/api/plans
+- https://blockchair.com/api/docs
+plans:
+- id: blockchair-free
+  name: Free
+  type: free
+  description: >-
+    No-key access for personal use and testing, up to 1440 requests per day on
+    average (about one request per minute), with a hard limit of 30 requests
+    per minute.
+  entries:
+  - label: Daily Requests
+    name: free_requests
+    type: free
+    metric: requests
+    limit: 1440
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $0
+    userMultiplied: false
+  elements:
+  - name: All Blockchains
+  - name: Dashboards
+  - name: Raw Data
+  - name: Stats
+  - name: Database Queries
+- id: blockchair-enterprise-25k
+  name: Enterprise 25,000 calls/day
+  type: subscription
+  description: 25,000 API calls per day.
+  entries:
+  - label: Daily Calls
+    name: calls_25k
+    type: flat
+    metric: requests
+    limit: 25000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $250/month
+    userMultiplied: false
+  elements:
+  - name: All Blockchains
+- id: blockchair-enterprise-50k
+  name: Enterprise 50,000 calls/day
+  type: subscription
+  description: 50,000 API calls per day.
+  entries:
+  - label: Daily Calls
+    name: calls_50k
+    type: flat
+    metric: requests
+    limit: 50000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $500/month
+    userMultiplied: false
+  elements:
+  - name: All Blockchains
+- id: blockchair-enterprise-75k
+  name: Enterprise 75,000 calls/day
+  type: subscription
+  description: 75,000 API calls per day.
+  entries:
+  - label: Daily Calls
+    name: calls_75k
+    type: flat
+    metric: requests
+    limit: 75000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $750/month
+    userMultiplied: false
+  elements:
+  - name: All Blockchains
+- id: blockchair-enterprise-100k
+  name: Enterprise 100,000 calls/day
+  type: subscription
+  description: 100,000 API calls per day.
+  entries:
+  - label: Daily Calls
+    name: calls_100k
+    type: flat
+    metric: requests
+    limit: 100000
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: $1000/month
+    userMultiplied: false
+  elements:
+  - name: All Blockchains
+- id: blockchair-custom
+  name: Custom
+  type: enterprise
+  description: >-
+    Custom plans for businesses needing unlimited requests, dedicated
+    infrastructure, or specialized support. Pricing on request.
+  entries:
+  - label: Custom Agreement
+    name: custom
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Unlimited Requests
+  - name: Dedicated Infrastructure
+  - name: Specialized Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

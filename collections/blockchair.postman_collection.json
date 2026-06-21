@@ -1,0 +1,295 @@
+{
+  "info": {
+    "name": "Blockchair API",
+    "description": "Blockchair multi-blockchain explorer and data API. Per-chain dashboards (address, transaction, block), raw node data, network stats, SQL-like database queries, and transaction broadcasting. Authenticated with an optional `key` query parameter.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "key", "type": "string" },
+      { "key": "value", "value": "{{apiKey}}", "type": "string" },
+      { "key": "in", "value": "query", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.blockchair.com" },
+    { "key": "chain", "value": "bitcoin" },
+    { "key": "apiKey", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Stats",
+      "item": [
+        {
+          "name": "Get blockchain statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "stats"]
+            },
+            "description": "Returns overall statistics for a single blockchain."
+          }
+        },
+        {
+          "name": "Get multi-chain statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["stats"]
+            },
+            "description": "Returns aggregated statistics across all supported blockchains."
+          }
+        },
+        {
+          "name": "Get cross-chain token statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/cross-chain/usdt/stats",
+              "host": ["{{baseUrl}}"],
+              "path": ["cross-chain", "usdt", "stats"]
+            },
+            "description": "Returns statistics for a cross-chain token across the chains it is issued on."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Address Dashboards",
+      "item": [
+        {
+          "name": "Get an address dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/address/:address",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "address", ":address"],
+              "variable": [
+                { "key": "address", "value": "1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa" }
+              ]
+            },
+            "description": "Returns balance, transaction list, and aggregated stats for a single address."
+          }
+        },
+        {
+          "name": "Get a multi-address dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/addresses/:addresses",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "addresses", ":addresses"],
+              "variable": [
+                { "key": "addresses", "value": "address0,address1" }
+              ]
+            },
+            "description": "Returns combined data for a comma-separated set of up to 100 addresses."
+          }
+        },
+        {
+          "name": "Get an extended public key dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/xpub/:extended_key",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "xpub", ":extended_key"],
+              "variable": [
+                { "key": "extended_key", "value": "xpub..." }
+              ]
+            },
+            "description": "Returns balance and transaction data derived from an extended public key."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Transaction Dashboards",
+      "item": [
+        {
+          "name": "Get a transaction dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/transaction/:hash",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "transaction", ":hash"],
+              "variable": [{ "key": "hash", "value": "transaction_hash" }]
+            },
+            "description": "Returns a parsed view of a single transaction."
+          }
+        },
+        {
+          "name": "Get a multi-transaction dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/transactions/:hashes",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "transactions", ":hashes"],
+              "variable": [{ "key": "hashes", "value": "hash0,hash1" }]
+            },
+            "description": "Returns parsed views for a comma-separated set of transaction hashes."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Block Dashboards",
+      "item": [
+        {
+          "name": "Get a block dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/block/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "block", ":id"],
+              "variable": [{ "key": "id", "value": "700000" }]
+            },
+            "description": "Returns a parsed view of a single block by height or hash."
+          }
+        },
+        {
+          "name": "Get a multi-block dashboard",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/dashboards/blocks/:ids",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "dashboards", "blocks", ":ids"],
+              "variable": [{ "key": "ids", "value": "700000,700001" }]
+            },
+            "description": "Returns parsed views for a comma-separated set of block heights."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Raw Data",
+      "item": [
+        {
+          "name": "Get raw block data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/raw/block/:id",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "raw", "block", ":id"],
+              "variable": [{ "key": "id", "value": "700000" }]
+            },
+            "description": "Returns raw node-level data for a block by height or hash."
+          }
+        },
+        {
+          "name": "Get raw transaction data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/raw/transaction/:hash",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "raw", "transaction", ":hash"],
+              "variable": [{ "key": "hash", "value": "transaction_hash" }]
+            },
+            "description": "Returns raw node-level data for a transaction by hash."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Outputs Database",
+      "item": [
+        {
+          "name": "Query the outputs database",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/outputs?q=is_spent(false)&s=value(desc)&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "outputs"],
+              "query": [
+                { "key": "q", "value": "is_spent(false)" },
+                { "key": "s", "value": "value(desc)" },
+                { "key": "limit", "value": "10" }
+              ]
+            },
+            "description": "SQL-like query over the outputs table on Bitcoin-like chains."
+          }
+        },
+        {
+          "name": "Query the blocks database",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/blocks?limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "blocks"],
+              "query": [{ "key": "limit", "value": "10" }]
+            },
+            "description": "SQL-like query over the blocks table."
+          }
+        },
+        {
+          "name": "Query the transactions database",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/transactions?limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "transactions"],
+              "query": [{ "key": "limit", "value": "10" }]
+            },
+            "description": "SQL-like query over the transactions table."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Broadcast",
+      "item": [
+        {
+          "name": "Broadcast a signed transaction",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                { "key": "data", "value": "{signed_raw_transaction_hex}" }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{chain}}/push/transaction",
+              "host": ["{{baseUrl}}"],
+              "path": ["{{chain}}", "push", "transaction"]
+            },
+            "description": "Relays a signed, raw transaction to the network of the selected chain."
+          }
+        }
+      ]
+    }
+  ]
+}

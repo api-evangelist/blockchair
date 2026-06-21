@@ -1,0 +1,68 @@
+aid: blockchair
+name: Blockchair
+review:
+  question: Does Blockchair expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Blockchair's public API is entirely
+    request/response REST over HTTPS under https://api.blockchair.com. No
+    WebSocket, SSE, or other event-driven streaming surface is documented, so
+    there is no asynchronous/streaming interface to model.
+findings:
+  summary: |
+    Blockchair does not publish a documented public WebSocket API. The
+    Blockchair platform is a multi-blockchain explorer and data API exposing
+    only REST (HTTPS) endpoints under https://api.blockchair.com, authenticated
+    with an optional `key` query parameter. Data is delivered synchronously as
+    JSON in response to GET requests (dashboards, raw data, stats, database
+    queries) and POST requests (transaction broadcasting). No realtime,
+    bidirectional, push, or streaming WebSocket (ws:// or wss://) endpoint is
+    documented for blocks, transactions, mempool, or any other resource as of
+    the review date.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.blockchair.com
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Blockchair's API documentation as of the review date.
+  endpointsConfirmedRest:
+    - GET  https://api.blockchair.com/{chain}/stats
+    - GET  https://api.blockchair.com/stats
+    - GET  https://api.blockchair.com/cross-chain/{token}/stats
+    - GET  https://api.blockchair.com/{chain}/dashboards/address/{address}
+    - GET  https://api.blockchair.com/{chain}/dashboards/addresses/{addresses}
+    - GET  https://api.blockchair.com/{chain}/dashboards/xpub/{extended_key}
+    - GET  https://api.blockchair.com/{chain}/dashboards/transaction/{hash}
+    - GET  https://api.blockchair.com/{chain}/dashboards/transactions/{hashes}
+    - GET  https://api.blockchair.com/{chain}/dashboards/block/{id}
+    - GET  https://api.blockchair.com/{chain}/dashboards/blocks/{ids}
+    - GET  https://api.blockchair.com/{chain}/raw/block/{id}
+    - GET  https://api.blockchair.com/{chain}/raw/transaction/{hash}
+    - GET  https://api.blockchair.com/{chain}/outputs
+    - GET  https://api.blockchair.com/{chain}/blocks
+    - GET  https://api.blockchair.com/{chain}/transactions
+    - POST https://api.blockchair.com/{chain}/push/transaction
+sources:
+  - url: https://blockchair.com/api/docs
+    type: Documentation
+    note: API overview and reference; all documented endpoints are HTTPS REST. No WebSocket mentioned.
+  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+    type: APIReference
+    note: Full endpoint reference; dashboards, raw, stats, database, and push endpoints are all REST.
+  - url: https://blockchair.com/api
+    type: Documentation
+    note: Marketing/overview page describing the data API across 40+ blockchains; no streaming surface.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or other asynchronous protocol surface exists in Blockchair's
+    public documentation. The catalog models only the documented REST API; no
+    AsyncAPI artifact was authored because there is no event-driven interface
+    to describe.
