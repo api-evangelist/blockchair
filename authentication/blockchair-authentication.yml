@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/blockchair-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: apiKey
+  type: apiKey
+  in: query
+  parameter: key
+  description: Optional API key passed as the `key` query parameter. Up to 1440 requests per
+    day are allowed without a key for personal/testing use.
+  sources:
+  - openapi/blockchair-openapi.yml

@@ -178,6 +178,10 @@ apis:
   description: Transaction broadcasting endpoint that relays a signed, raw transaction
     to the network of the selected chain via an HTTP POST.
 common:
+- type: DomainSecurity
+  url: security/blockchair-domain-security.yml
+- type: Authentication
+  url: authentication/blockchair-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/Blockchair
 - type: LinkedIn
