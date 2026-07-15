@@ -178,6 +178,8 @@ apis:
   description: Transaction broadcasting endpoint that relays a signed, raw transaction
     to the network of the selected chain via an HTTP POST.
 common:
+- type: AgenticAccess
+  url: agentic-access/blockchair-agentic-access.yml
 - type: DomainSecurity
   url: security/blockchair-domain-security.yml
 - type: Authentication
