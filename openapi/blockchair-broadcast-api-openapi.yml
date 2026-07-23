@@ -1,0 +1,112 @@
+openapi: 3.0.1
+info:
+  title: Blockchair Address Dashboards Broadcast API
+  description: The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.
+  termsOfService: https://blockchair.com/api/docs
+  contact:
+    name: Blockchair Support
+    url: https://github.com/Blockchair/Blockchair.Support
+  version: 2.0.80
+servers:
+- url: https://api.blockchair.com
+  description: Blockchair production API
+security:
+- apiKey: []
+tags:
+- name: Broadcast
+  description: Signed transaction broadcasting.
+paths:
+  /{chain}/push/transaction:
+    post:
+      operationId: broadcastTransaction
+      tags:
+      - Broadcast
+      summary: Broadcast a signed transaction
+      description: Relays a signed, raw transaction to the network of the selected chain.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - $ref: '#/components/parameters/key'
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - data
+              properties:
+                data:
+                  type: string
+                  description: The signed, raw transaction in hexadecimal form.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastResponse'
+components:
+  parameters:
+    chain:
+      name: chain
+      in: path
+      required: true
+      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
+      schema:
+        type: string
+        example: bitcoin
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
+  schemas:
+    BroadcastResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            transaction_hash:
+              type: string
+              description: The hash of the broadcast transaction.
+        context:
+          $ref: '#/components/schemas/Context'
+    Context:
+      type: object
+      description: Metadata describing the request, cost, and server state.
+      properties:
+        code:
+          type: integer
+          example: 200
+        source:
+          type: string
+        results:
+          type: integer
+        state:
+          type: integer
+          description: Current best block height of the chain.
+        cache:
+          type: object
+        api:
+          type: object
+          properties:
+            version:
+              type: string
+            last_major_update:
+              type: string
+            next_major_update:
+              type: string
+        request_cost:
+          type: number
+          description: Number of API request units this call consumed.
+        time:
+          type: number
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
+      description: Optional API key passed as the `key` query parameter. Up to 1440 requests per day are allowed without a key for personal/testing use.

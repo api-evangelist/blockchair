@@ -1,0 +1,181 @@
+openapi: 3.0.1
+info:
+  title: Blockchair Address Dashboards Outputs Database API
+  description: The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.
+  termsOfService: https://blockchair.com/api/docs
+  contact:
+    name: Blockchair Support
+    url: https://github.com/Blockchair/Blockchair.Support
+  version: 2.0.80
+servers:
+- url: https://api.blockchair.com
+  description: Blockchair production API
+security:
+- apiKey: []
+tags:
+- name: Outputs Database
+  description: SQL-like database query interface.
+paths:
+  /{chain}/outputs:
+    get:
+      operationId: queryOutputs
+      tags:
+      - Outputs Database
+      summary: Query the outputs database
+      description: SQL-like query over the outputs table on Bitcoin-like chains, supporting filtering by column, sorting, aggregation, offset, and limit.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: q
+        in: query
+        required: false
+        description: Filter expression, e.g. `recipient(1A1zP...),is_spent(false)`.
+        schema:
+          type: string
+      - name: s
+        in: query
+        required: false
+        description: Sort expression, e.g. `value(desc)`.
+        schema:
+          type: string
+      - name: a
+        in: query
+        required: false
+        description: Aggregation expression, e.g. `sum(value)`.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseResponse'
+  /{chain}/blocks:
+    get:
+      operationId: queryBlocks
+      tags:
+      - Outputs Database
+      summary: Query the blocks database
+      description: SQL-like query over the blocks table on Bitcoin-like chains.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseResponse'
+  /{chain}/transactions:
+    get:
+      operationId: queryTransactions
+      tags:
+      - Outputs Database
+      summary: Query the transactions database
+      description: SQL-like query over the transactions table.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: q
+        in: query
+        required: false
+        schema:
+          type: string
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatabaseResponse'
+components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of rows to return.
+      schema:
+        type: integer
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of rows to skip.
+      schema:
+        type: integer
+    chain:
+      name: chain
+      in: path
+      required: true
+      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
+      schema:
+        type: string
+        example: bitcoin
+  schemas:
+    DatabaseResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          description: Array of result rows from the database query.
+          items:
+            type: object
+        context:
+          $ref: '#/components/schemas/Context'
+    Context:
+      type: object
+      description: Metadata describing the request, cost, and server state.
+      properties:
+        code:
+          type: integer
+          example: 200
+        source:
+          type: string
+        results:
+          type: integer
+        state:
+          type: integer
+          description: Current best block height of the chain.
+        cache:
+          type: object
+        api:
+          type: object
+          properties:
+            version:
+              type: string
+            last_major_update:
+              type: string
+            next_major_update:
+              type: string
+        request_cost:
+          type: number
+          description: Number of API request units this call consumed.
+        time:
+          type: number
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
+      description: Optional API key passed as the `key` query parameter. Up to 1440 requests per day are allowed without a key for personal/testing use.

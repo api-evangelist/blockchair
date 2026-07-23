@@ -1,0 +1,165 @@
+openapi: 3.0.1
+info:
+  title: Blockchair Address Dashboards API
+  description: The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.
+  termsOfService: https://blockchair.com/api/docs
+  contact:
+    name: Blockchair Support
+    url: https://github.com/Blockchair/Blockchair.Support
+  version: 2.0.80
+servers:
+- url: https://api.blockchair.com
+  description: Blockchair production API
+security:
+- apiKey: []
+tags:
+- name: Address Dashboards
+  description: Per-address balance and transaction dashboards.
+paths:
+  /{chain}/dashboards/address/{address}:
+    get:
+      operationId: getAddressDashboard
+      tags:
+      - Address Dashboards
+      summary: Get an address dashboard
+      description: Returns balance, transaction list, and aggregated statistics for a single address on the selected chain.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: address
+        in: path
+        required: true
+        description: The address to look up.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/limit'
+      - $ref: '#/components/parameters/offset'
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardResponse'
+  /{chain}/dashboards/addresses/{addresses}:
+    get:
+      operationId: getAddressesDashboard
+      tags:
+      - Address Dashboards
+      summary: Get a multi-address dashboard
+      description: Returns combined balance and transaction data for a comma-separated set of up to 100 addresses.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: addresses
+        in: path
+        required: true
+        description: Comma-separated list of up to 100 addresses.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardResponse'
+  /{chain}/dashboards/xpub/{extendedKey}:
+    get:
+      operationId: getXpubDashboard
+      tags:
+      - Address Dashboards
+      summary: Get an extended public key dashboard
+      description: Returns balance and transaction data derived from an extended public key (xpub/ypub/zpub) on Bitcoin-like chains.
+      parameters:
+      - $ref: '#/components/parameters/chain'
+      - name: extendedKey
+        in: path
+        required: true
+        description: The extended public key.
+        schema:
+          type: string
+      - $ref: '#/components/parameters/key'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DashboardResponse'
+components:
+  parameters:
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of rows to return.
+      schema:
+        type: integer
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
+    offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of rows to skip.
+      schema:
+        type: integer
+    chain:
+      name: chain
+      in: path
+      required: true
+      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
+      schema:
+        type: string
+        example: bitcoin
+  schemas:
+    DashboardResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Dashboard payload keyed by the requested address, transaction hash, or block id.
+        context:
+          $ref: '#/components/schemas/Context'
+    Context:
+      type: object
+      description: Metadata describing the request, cost, and server state.
+      properties:
+        code:
+          type: integer
+          example: 200
+        source:
+          type: string
+        results:
+          type: integer
+        state:
+          type: integer
+          description: Current best block height of the chain.
+        cache:
+          type: object
+        api:
+          type: object
+          properties:
+            version:
+              type: string
+            last_major_update:
+              type: string
+            next_major_update:
+              type: string
+        request_cost:
+          type: number
+          description: Number of API request units this call consumed.
+        time:
+          type: number
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: query
+      name: key
+      description: Optional API key passed as the `key` query parameter. Up to 1440 requests per day are allowed without a key for personal/testing use.
