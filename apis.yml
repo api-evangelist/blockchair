@@ -8,7 +8,20 @@ description: Blockchair is a multi-blockchain explorer and data API providing un
   exposes per-chain dashboards (address, transaction, block), raw node data, network
   stats, a SQL-like database query interface over outputs and other tables, and
   transaction broadcasting, authenticated with a simple key query parameter.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Freemium · Open access
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/blockchair.png
 tags:
 - Blockchain
 - Cryptocurrency
@@ -20,163 +33,132 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: blockchair:address-dashboards
+- aid: blockchair:blockchair-address-dashboards-api
   name: Blockchair Address Dashboards API
-  tags:
-  - Address
-  - Dashboards
-  - Balance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Per-address balance and transaction dashboards.
   humanURL: https://blockchair.com/api/docs
   baseURL: https://api.blockchair.com
-  properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Per-chain address dashboards returning balance, transaction list, and
-    aggregated stats for a single address, a set of up to 100 addresses, or an
-    extended public key (xpub/ypub/zpub) across Bitcoin-like and Ethereum-like chains.
-- aid: blockchair:transaction-dashboards
-  name: Blockchair Transaction Dashboards API
   tags:
-  - Transaction
-  - Dashboards
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://blockchair.com/api/docs
-  baseURL: https://api.blockchair.com
+  - Address Dashboards
   properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Transaction dashboards returning a parsed view of one transaction or
-    a set of transactions by hash, including inputs, outputs, fees, and confirmation
-    data, across supported chains.
-- aid: blockchair:block-dashboards
+  - type: OpenAPI
+    url: openapi/blockchair-address-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-block-dashboards-api
   name: Blockchair Block Dashboards API
-  tags:
-  - Block
-  - Dashboards
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  description: Parsed block dashboards.
   humanURL: https://blockchair.com/api/docs
   baseURL: https://api.blockchair.com
-  properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Block dashboards returning a parsed view of one block or a set of blocks
-    by height or hash, including header fields, transaction references, and block
-    statistics, across supported chains.
-- aid: blockchair:raw-data
-  name: Blockchair Raw Data API
   tags:
-  - Raw Data
-  - Node
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://blockchair.com/api/docs
-  baseURL: https://api.blockchair.com
+  - Block Dashboards
   properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Raw node-level data for blocks and transactions (and ledgers, accounts,
-    and operations on non-UTXO chains) as returned by the underlying blockchain
-    node, for clients that need the unprocessed payload.
-- aid: blockchair:stats
-  name: Blockchair Stats API
-  tags:
-  - Stats
-  - Statistics
-  - Network
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://blockchair.com/api/docs
-  baseURL: https://api.blockchair.com
-  properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Network statistics endpoints returning overall blockchain metrics
-    (blocks, transactions, market data, difficulty, mempool) for a single chain,
-    all chains at once, or cross-chain tokens such as USDT and USDC.
-- aid: blockchair:outputs
-  name: Blockchair Outputs Database API
-  tags:
-  - Outputs
-  - Database
-  - Query
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://blockchair.com/api/docs
-  baseURL: https://api.blockchair.com
-  properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: SQL-like database query interface over the outputs table (and blocks,
-    transactions, and addresses) on Bitcoin-like chains, supporting filtering by
-    column, sorting, aggregation, offset, and limit for analytical queries.
-- aid: blockchair:broadcast
+  - type: OpenAPI
+    url: openapi/blockchair-block-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-broadcast-api
   name: Blockchair Broadcast API
+  description: Signed transaction broadcasting.
+  humanURL: https://blockchair.com/api/docs
+  baseURL: https://api.blockchair.com
   tags:
   - Broadcast
-  - Push
-  - Transaction
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/blockchair-broadcast-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-outputs-database-api
+  name: Blockchair Outputs Database API
+  description: SQL-like database query interface.
   humanURL: https://blockchair.com/api/docs
   baseURL: https://api.blockchair.com
+  tags:
+  - Outputs Database
   properties:
-  - url: https://blockchair.com/api/docs
-    type: Documentation
-  - url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
-    type: APIReference
-  - url: openapi/blockchair-openapi.yml
-    type: OpenAPI
-  - url: collections/blockchair.postman_collection.json
-    type: PostmanCollection
-  - url: collections/blockchair.opencollection.json
-    type: OpenCollection
-  description: Transaction broadcasting endpoint that relays a signed, raw transaction
-    to the network of the selected chain via an HTTP POST.
+  - type: OpenAPI
+    url: openapi/blockchair-outputs-database-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-raw-data-api
+  name: Blockchair Raw Data API
+  description: Raw node-level block and transaction data.
+  humanURL: https://blockchair.com/api/docs
+  baseURL: https://api.blockchair.com
+  tags:
+  - Raw Data
+  properties:
+  - type: OpenAPI
+    url: openapi/blockchair-raw-data-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-stats-api
+  name: Blockchair Stats API
+  description: Network and chain statistics.
+  humanURL: https://blockchair.com/api/docs
+  baseURL: https://api.blockchair.com
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/blockchair-stats-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
+- aid: blockchair:blockchair-transaction-dashboards-api
+  name: Blockchair Transaction Dashboards API
+  description: Parsed transaction dashboards.
+  humanURL: https://blockchair.com/api/docs
+  baseURL: https://api.blockchair.com
+  tags:
+  - Transaction Dashboards
+  properties:
+  - type: OpenAPI
+    url: openapi/blockchair-transaction-dashboards-api-openapi.yml
+  - type: Documentation
+    url: https://blockchair.com/api/docs
+  - type: APIReference
+    url: https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md
+  - type: PostmanCollection
+    url: collections/blockchair.postman_collection.json
+  - type: OpenCollection
+    url: collections/blockchair.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/blockchair-agentic-access.yml
