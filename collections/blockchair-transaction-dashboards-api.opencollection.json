@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair Address Dashboards Transaction Dashboards API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transaction Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a transaction dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/transaction/:hash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path",
+                "description": "The transaction hash."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns a parsed view of a single transaction including inputs, outputs, fees, and confirmation data."
+        },
+        {
+          "info": {
+            "name": "Get a multi-transaction dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/transactions/:hashes",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "hashes",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated list of transaction hashes."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns parsed views for a comma-separated set of transaction hashes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

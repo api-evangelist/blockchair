@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair Address Dashboards Raw Data API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Raw Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get raw block data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/raw/block/:id",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Block height or block hash."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns raw node-level data for a block by height or hash."
+        },
+        {
+          "info": {
+            "name": "Get raw transaction data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/raw/transaction/:hash",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "path",
+                "description": "The transaction hash."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns raw node-level data for a transaction by hash."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

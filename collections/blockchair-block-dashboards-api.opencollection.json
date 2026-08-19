@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair Address Dashboards Block Dashboards API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Block Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a block dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/block/:id",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Block height or block hash."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns a parsed view of a single block, identified by height or hash, including header fields and transaction references."
+        },
+        {
+          "info": {
+            "name": "Get a multi-block dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/blocks/:ids",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "ids",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated list of block heights."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns parsed views for a comma-separated set of block heights."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

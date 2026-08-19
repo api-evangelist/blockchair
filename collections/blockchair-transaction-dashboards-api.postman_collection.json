@@ -1,0 +1,293 @@
+{
+  "item": [
+    {
+      "id": "eca9e149-d408-43be-9020-505ea7568412",
+      "name": "Transaction Dashboards",
+      "description": {
+        "content": "Parsed transaction dashboards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "949251e8-0096-4d01-8b6d-be4b34aed222",
+          "name": "Get a transaction dashboard",
+          "request": {
+            "name": "Get a transaction dashboard",
+            "description": {
+              "content": "Returns a parsed view of a single transaction including inputs, outputs, fees, and confirmation data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "dashboards",
+                "transaction",
+                ":hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hash",
+                  "description": "(Required) The transaction hash."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2130d2fc-93c0-4682-8560-445d011a9b7c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "dashboards",
+                    "transaction",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) The transaction hash."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 9916,\n    \"state\": 3278,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 2195.169865941876,\n    \"time\": 2569.668846092629\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1729c344-a6f2-4f68-a051-58c40bc83fdd",
+          "name": "Get a multi-transaction dashboard",
+          "request": {
+            "name": "Get a multi-transaction dashboard",
+            "description": {
+              "content": "Returns parsed views for a comma-separated set of transaction hashes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "dashboards",
+                "transactions",
+                ":hashes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hashes",
+                  "description": "(Required) Comma-separated list of transaction hashes."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf4b172e-2d36-452d-860d-b8769c3b5fe6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "dashboards",
+                    "transactions",
+                    ":hashes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hashes",
+                      "description": "(Required) Comma-separated list of transaction hashes."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 9916,\n    \"state\": 3278,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 2195.169865941876,\n    \"time\": 2569.668846092629\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.blockchair.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb438070-85c5-4bd9-9e6a-015805a488ea",
+    "name": "Blockchair Address Dashboards Transaction Dashboards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.\n\nContact Support:\n Name: Blockchair Support",
+      "type": "text/plain"
+    }
+  }
+}

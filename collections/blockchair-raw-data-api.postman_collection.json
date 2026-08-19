@@ -1,0 +1,293 @@
+{
+  "item": [
+    {
+      "id": "daf66bec-275a-4b7b-9f7a-bf959dc0e0b3",
+      "name": "Raw Data",
+      "description": {
+        "content": "Raw node-level block and transaction data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebc3139b-887e-442d-9128-0c4d3248cdc6",
+          "name": "Get raw block data",
+          "request": {
+            "name": "Get raw block data",
+            "description": {
+              "content": "Returns raw node-level data for a block by height or hash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "raw",
+                "block",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Block height or block hash."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a97e92de-3aa8-4c8c-9023-45bc26e125ed",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "raw",
+                    "block",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Block height or block hash."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 4886,\n    \"state\": 3060,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 9666.771320475633,\n    \"time\": 5804.3956521119635\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "554e62c6-946a-49c9-9b80-5eb6fa74fd25",
+          "name": "Get raw transaction data",
+          "request": {
+            "name": "Get raw transaction data",
+            "description": {
+              "content": "Returns raw node-level data for a transaction by hash.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "raw",
+                "transaction",
+                ":hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "hash",
+                  "description": "(Required) The transaction hash."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93ecfa8d-2927-4766-bb7f-e8843e5ad496",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "raw",
+                    "transaction",
+                    ":hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "hash",
+                      "description": "(Required) The transaction hash."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 4886,\n    \"state\": 3060,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 9666.771320475633,\n    \"time\": 5804.3956521119635\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.blockchair.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d6ad083-80f1-4e42-a974-26cdb876e9c9",
+    "name": "Blockchair Address Dashboards Raw Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.\n\nContact Support:\n Name: Blockchair Support",
+      "type": "text/plain"
+    }
+  }
+}

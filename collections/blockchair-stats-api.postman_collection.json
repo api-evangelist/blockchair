@@ -1,0 +1,345 @@
+{
+  "item": [
+    {
+      "id": "cc0b192c-23bb-4f69-90ad-8536ce3af7b4",
+      "name": "Stats",
+      "description": {
+        "content": "Network and chain statistics.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a78f720b-def4-4fbe-8230-9a07e17719d0",
+          "name": "Get blockchain statistics",
+          "request": {
+            "name": "Get blockchain statistics",
+            "description": {
+              "content": "Returns overall statistics for a single blockchain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3dd82288-d05a-4e44-813c-79ac550307a9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 471,\n    \"state\": 5590,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 9120.388203617325,\n    \"time\": 7737.049902431892\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6414d12c-5028-44a9-9f94-3a26cc179eb8",
+          "name": "Get multi-chain statistics",
+          "request": {
+            "name": "Get multi-chain statistics",
+            "description": {
+              "content": "Returns aggregated statistics across all supported blockchains.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f92571c-5072-4d1a-8516-a658785ed168",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 471,\n    \"state\": 5590,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 9120.388203617325,\n    \"time\": 7737.049902431892\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb8f489b-7508-47c3-aa07-4f090fa847a1",
+          "name": "Get cross-chain token statistics",
+          "request": {
+            "name": "Get cross-chain token statistics",
+            "description": {
+              "content": "Returns statistics for a cross-chain token (e.g. USDT, USDC) across the chains it is issued on.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cross-chain",
+                ":token",
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "token",
+                  "description": "(Required) Cross-chain token symbol."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f016bd1-92fe-44e9-b710-38cf2e37ecfd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cross-chain",
+                    ":token",
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "token",
+                      "description": "(Required) Cross-chain token symbol."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 471,\n    \"state\": 5590,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 9120.388203617325,\n    \"time\": 7737.049902431892\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.blockchair.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b6963ba7-1f67-47a8-89fb-f771bf5c1159",
+    "name": "Blockchair Address Dashboards Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.\n\nContact Support:\n Name: Blockchair Support",
+      "type": "text/plain"
+    }
+  }
+}

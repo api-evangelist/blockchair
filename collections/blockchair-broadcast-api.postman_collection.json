@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "81f454fb-5390-4941-92ca-6ba5eecee81a",
+      "name": "Broadcast",
+      "description": {
+        "content": "Signed transaction broadcasting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9df7020b-e1ff-4b66-b5db-cba145430d1f",
+          "name": "Broadcast a signed transaction",
+          "request": {
+            "name": "Broadcast a signed transaction",
+            "description": {
+              "content": "Relays a signed, raw transaction to the network of the selected chain.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "push",
+                "transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "data",
+                  "value": "<string>",
+                  "description": "(Required) The signed, raw transaction in hexadecimal form."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fb550ad8-8ed5-4bc1-96f3-a2d9a9bb8a5c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "push",
+                    "transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The signed, raw transaction in hexadecimal form.",
+                        "type": "text/plain"
+                      },
+                      "key": "data",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"transaction_hash\": \"string\"\n  },\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 2878,\n    \"state\": 8164,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 7179.074139288171,\n    \"time\": 3849.7100537197525\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.blockchair.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a8c3a483-6eb2-413c-a32f-e2c1540372eb",
+    "name": "Blockchair Address Dashboards Broadcast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.\n\nContact Support:\n Name: Blockchair Support",
+      "type": "text/plain"
+    }
+  }
+}

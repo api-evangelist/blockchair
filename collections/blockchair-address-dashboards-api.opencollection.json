@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair Address Dashboards API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Address Dashboards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an address dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/address/:address",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "The address to look up."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns balance, transaction list, and aggregated statistics for a single address on the selected chain."
+        },
+        {
+          "info": {
+            "name": "Get a multi-address dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/addresses/:addresses",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "addresses",
+                "value": "",
+                "type": "path",
+                "description": "Comma-separated list of up to 100 addresses."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns combined balance and transaction data for a comma-separated set of up to 100 addresses."
+        },
+        {
+          "info": {
+            "name": "Get an extended public key dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/dashboards/xpub/:extendedKey",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "extendedKey",
+                "value": "",
+                "type": "path",
+                "description": "The extended public key."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "Returns balance and transaction data derived from an extended public key (xpub/ypub/zpub) on Bitcoin-like chains."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

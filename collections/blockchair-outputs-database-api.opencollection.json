@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Blockchair Address Dashboards Outputs Database API",
+    "version": "2.0.80"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Outputs Database",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query the outputs database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/outputs",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Filter expression, e.g. `recipient(1A1zP...),is_spent(false)`."
+              },
+              {
+                "name": "s",
+                "value": "",
+                "type": "query",
+                "description": "Sort expression, e.g. `value(desc)`."
+              },
+              {
+                "name": "a",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation expression, e.g. `sum(value)`."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "SQL-like query over the outputs table on Bitcoin-like chains, supporting filtering by column, sorting, aggregation, offset, and limit."
+        },
+        {
+          "info": {
+            "name": "Query the blocks database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/blocks",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "SQL-like query over the blocks table on Bitcoin-like chains."
+        },
+        {
+          "info": {
+            "name": "Query the transactions database",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.blockchair.com/:chain/transactions",
+            "params": [
+              {
+                "name": "chain",
+                "value": "",
+                "type": "path",
+                "description": "Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of rows to return."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of rows to skip."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key."
+              }
+            ]
+          },
+          "docs": "SQL-like query over the transactions table."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

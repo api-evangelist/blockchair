@@ -1,0 +1,293 @@
+{
+  "item": [
+    {
+      "id": "72d91701-d90e-4bff-8e9e-ae1f5bca4dea",
+      "name": "Block Dashboards",
+      "description": {
+        "content": "Parsed block dashboards.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "26db2621-255d-4597-bf1b-c1b2f611b2fb",
+          "name": "Get a block dashboard",
+          "request": {
+            "name": "Get a block dashboard",
+            "description": {
+              "content": "Returns a parsed view of a single block, identified by height or hash, including header fields and transaction references.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "dashboards",
+                "block",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Block height or block hash."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "064a9a75-7d2e-407e-8419-0df3b803d185",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "dashboards",
+                    "block",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Block height or block hash."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 7254,\n    \"state\": 7262,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 1156.820433063036,\n    \"time\": 3845.8825729752357\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9bcd84c-6b3b-4aec-8795-04cf35fc9c02",
+          "name": "Get a multi-block dashboard",
+          "request": {
+            "name": "Get a multi-block dashboard",
+            "description": {
+              "content": "Returns parsed views for a comma-separated set of block heights.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":chain",
+                "dashboards",
+                "blocks",
+                ":ids"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "API key."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "chain",
+                  "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ids",
+                  "description": "(Required) Comma-separated list of block heights."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8939a8fc-6ee6-4507-aa27-f3e09adfc7a1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":chain",
+                    "dashboards",
+                    "blocks",
+                    ":ids"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "chain",
+                      "description": "(Required) Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin)."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ids",
+                      "description": "(Required) Comma-separated list of block heights."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {},\n  \"context\": {\n    \"code\": 200,\n    \"source\": \"string\",\n    \"results\": 7254,\n    \"state\": 7262,\n    \"cache\": {},\n    \"api\": {\n      \"version\": \"string\",\n      \"last_major_update\": \"string\",\n      \"next_major_update\": \"string\"\n    },\n    \"request_cost\": 1156.820433063036,\n    \"time\": 3845.8825729752357\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.blockchair.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea5ec2e5-fca1-47e2-8e63-4e8485b95ed2",
+    "name": "Blockchair Address Dashboards Block Dashboards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.\n\nContact Support:\n Name: Blockchair Support",
+      "type": "text/plain"
+    }
+  }
+}
