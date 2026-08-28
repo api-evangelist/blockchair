@@ -8,6 +8,18 @@ description: Blockchair is a multi-blockchain explorer and data API providing un
   exposes per-chain dashboards (address, transaction, block), raw node data, network
   stats, a SQL-like database query interface over outputs and other tables, and
   transaction broadcasting, authenticated with a simple key query parameter.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: open
