@@ -1,13 +1,7 @@
 {
   "provider": "blockchair",
   "sources": [
-    "blockchair-address-dashboards-api-openapi.yml",
-    "blockchair-block-dashboards-api-openapi.yml",
-    "blockchair-broadcast-api-openapi.yml",
-    "blockchair-outputs-database-api-openapi.yml",
-    "blockchair-raw-data-api-openapi.yml",
-    "blockchair-stats-api-openapi.yml",
-    "blockchair-transaction-dashboards-api-openapi.yml"
+    "_original/blockchair-openapi.yml"
   ],
   "outputs": [
     "blockchair-address-dashboards-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "blockchair-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "blockchair-address-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-block-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-broadcast-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-outputs-database-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-raw-data-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-stats-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "blockchair-transaction-dashboards-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

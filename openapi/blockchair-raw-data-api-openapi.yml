@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Blockchair Address Dashboards Raw Data API
+  title: Blockchair Raw Data API
   description: The Blockchair API provides unified, multi-blockchain access to on-chain data across 40+ blockchains. It exposes per-chain dashboards (address, transaction, block), raw node data, network statistics, a SQL-like database query interface (blocks, transactions, outputs, addresses), and transaction broadcasting. Requests are authenticated with an optional `key` query parameter; up to 1440 requests per day are allowed without a key for personal or testing use.
   termsOfService: https://blockchair.com/api/docs
   contact:
@@ -80,6 +80,14 @@ components:
       schema:
         type: string
   schemas:
+    RawResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Raw node-level payload keyed by the requested identifier.
+        context:
+          $ref: '#/components/schemas/Context'
     Context:
       type: object
       description: Metadata describing the request, cost, and server state.
@@ -110,14 +118,6 @@ components:
           description: Number of API request units this call consumed.
         time:
           type: number
-    RawResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          description: Raw node-level payload keyed by the requested identifier.
-        context:
-          $ref: '#/components/schemas/Context'
   securitySchemes:
     apiKey:
       type: apiKey
