@@ -73,23 +73,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/StatsResponse'
 components:
-  parameters:
-    chain:
-      name: chain
-      in: path
-      required: true
-      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
-      schema:
-        type: string
-        example: bitcoin
-    key:
-      name: key
-      in: query
-      required: false
-      description: API key.
-      schema:
-        type: string
   schemas:
+    StatsResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Blockchain statistics keyed by metric.
+        context:
+          $ref: '#/components/schemas/Context'
     Context:
       type: object
       description: Metadata describing the request, cost, and server state.
@@ -120,14 +112,22 @@ components:
           description: Number of API request units this call consumed.
         time:
           type: number
-    StatsResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          description: Blockchain statistics keyed by metric.
-        context:
-          $ref: '#/components/schemas/Context'
+  parameters:
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
+    chain:
+      name: chain
+      in: path
+      required: true
+      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
+      schema:
+        type: string
+        example: bitcoin
   securitySchemes:
     apiKey:
       type: apiKey
