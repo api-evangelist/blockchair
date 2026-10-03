@@ -46,18 +46,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/BroadcastResponse'
 components:
+  parameters:
+    chain:
+      name: chain
+      in: path
+      required: true
+      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
+      schema:
+        type: string
+        example: bitcoin
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
   schemas:
-    BroadcastResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            transaction_hash:
-              type: string
-              description: The hash of the broadcast transaction.
-        context:
-          $ref: '#/components/schemas/Context'
     Context:
       type: object
       description: Metadata describing the request, cost, and server state.
@@ -88,22 +93,17 @@ components:
           description: Number of API request units this call consumed.
         time:
           type: number
-  parameters:
-    key:
-      name: key
-      in: query
-      required: false
-      description: API key.
-      schema:
-        type: string
-    chain:
-      name: chain
-      in: path
-      required: true
-      description: Blockchain slug (e.g. bitcoin, ethereum, litecoin, dogecoin).
-      schema:
-        type: string
-        example: bitcoin
+    BroadcastResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            transaction_hash:
+              type: string
+              description: The hash of the broadcast transaction.
+        context:
+          $ref: '#/components/schemas/Context'
   securitySchemes:
     apiKey:
       type: apiKey

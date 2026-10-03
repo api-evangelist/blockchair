@@ -64,13 +64,6 @@ paths:
                 $ref: '#/components/schemas/RawResponse'
 components:
   parameters:
-    key:
-      name: key
-      in: query
-      required: false
-      description: API key.
-      schema:
-        type: string
     chain:
       name: chain
       in: path
@@ -79,6 +72,13 @@ components:
       schema:
         type: string
         example: bitcoin
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
   schemas:
     Context:
       type: object

@@ -89,6 +89,13 @@ paths:
                 $ref: '#/components/schemas/DashboardResponse'
 components:
   parameters:
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
     limit:
       name: limit
       in: query
@@ -103,13 +110,6 @@ components:
       description: Number of rows to skip.
       schema:
         type: integer
-    key:
-      name: key
-      in: query
-      required: false
-      description: API key.
-      schema:
-        type: string
     chain:
       name: chain
       in: path
