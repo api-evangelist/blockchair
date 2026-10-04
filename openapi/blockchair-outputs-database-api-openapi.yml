@@ -103,20 +103,6 @@ paths:
                 $ref: '#/components/schemas/DatabaseResponse'
 components:
   parameters:
-    key:
-      name: key
-      in: query
-      required: false
-      description: API key.
-      schema:
-        type: string
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of rows to return.
-      schema:
-        type: integer
     offset:
       name: offset
       in: query
@@ -124,6 +110,20 @@ components:
       description: Number of rows to skip.
       schema:
         type: integer
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of rows to return.
+      schema:
+        type: integer
+    key:
+      name: key
+      in: query
+      required: false
+      description: API key.
+      schema:
+        type: string
     chain:
       name: chain
       in: path
