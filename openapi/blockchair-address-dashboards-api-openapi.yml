@@ -89,20 +89,6 @@ paths:
                 $ref: '#/components/schemas/DashboardResponse'
 components:
   parameters:
-    offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of rows to skip.
-      schema:
-        type: integer
-    limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of rows to return.
-      schema:
-        type: integer
     key:
       name: key
       in: query
@@ -118,6 +104,20 @@ components:
       schema:
         type: string
         example: bitcoin
+    offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of rows to skip.
+      schema:
+        type: integer
+    limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of rows to return.
+      schema:
+        type: integer
   schemas:
     Context:
       type: object

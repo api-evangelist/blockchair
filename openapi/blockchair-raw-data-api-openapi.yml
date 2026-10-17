@@ -80,6 +80,14 @@ components:
         type: string
         example: bitcoin
   schemas:
+    RawResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          description: Raw node-level payload keyed by the requested identifier.
+        context:
+          $ref: '#/components/schemas/Context'
     Context:
       type: object
       description: Metadata describing the request, cost, and server state.
@@ -110,14 +118,6 @@ components:
           description: Number of API request units this call consumed.
         time:
           type: number
-    RawResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          description: Raw node-level payload keyed by the requested identifier.
-        context:
-          $ref: '#/components/schemas/Context'
   securitySchemes:
     apiKey:
       type: apiKey

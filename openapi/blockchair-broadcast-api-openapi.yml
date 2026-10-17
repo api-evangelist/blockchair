@@ -63,6 +63,17 @@ components:
         type: string
         example: bitcoin
   schemas:
+    BroadcastResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            transaction_hash:
+              type: string
+              description: The hash of the broadcast transaction.
+        context:
+          $ref: '#/components/schemas/Context'
     Context:
       type: object
       description: Metadata describing the request, cost, and server state.
@@ -93,17 +104,6 @@ components:
           description: Number of API request units this call consumed.
         time:
           type: number
-    BroadcastResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          properties:
-            transaction_hash:
-              type: string
-              description: The hash of the broadcast transaction.
-        context:
-          $ref: '#/components/schemas/Context'
   securitySchemes:
     apiKey:
       type: apiKey
