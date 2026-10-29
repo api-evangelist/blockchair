@@ -1,4 +1,4 @@
-# Blockchair (blockchair)
+# Blockchair
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,179 +66,127 @@
 
 Blockchair is a multi-blockchain explorer and data API providing unified access to on-chain data across 40+ blockchains (Bitcoin, Ethereum, Litecoin, Dogecoin, Ripple, Stellar, Monero, Cardano, and more). The REST API at api.blockchair.com exposes per-chain dashboards (address, transaction, block), raw node data, network stats, a SQL-like database query interface over outputs and other tables, and transaction broadcasting, authenticated with a simple key query parameter.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/blockchair/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/blockchair/refs/heads/main/apis.yml)
+**Areas:** Blockchain · Cryptocurrency · Explorer · Bitcoin · Ethereum · On-Chain Data
 
-## Tags
+## Blockchair on APIs.io
 
-- Blockchain
-- Cryptocurrency
-- Explorer
-- Bitcoin
-- Ethereum
-- On-Chain Data
+Everything profiled for Blockchair is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/blockchair/](https://apis.io/providers/blockchair/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Blockchair Address Dashboards API](https://apis.io/apis/blockchair/blockchair-address-dashboards-api/) — Per-address balance and transaction dashboards.
+- [Blockchair Block Dashboards API](https://apis.io/apis/blockchair/blockchair-block-dashboards-api/) — Parsed block dashboards.
+- [Blockchair Broadcast API](https://apis.io/apis/blockchair/blockchair-broadcast-api/) — Signed transaction broadcasting.
+- [Blockchair Outputs Database API](https://apis.io/apis/blockchair/blockchair-outputs-database-api/) — SQL-like database query interface.
+- [Blockchair Raw Data API](https://apis.io/apis/blockchair/blockchair-raw-data-api/) — Raw node-level block and transaction data.
+- [Blockchair Stats API](https://apis.io/apis/blockchair/blockchair-stats-api/) — Network and chain statistics.
+- [Blockchair Transaction Dashboards API](https://apis.io/apis/blockchair/blockchair-transaction-dashboards-api/) — Parsed transaction dashboards.
 
-## APIs
+### Published properties
 
-### Blockchair Address Dashboards API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Per-chain address dashboards returning balance, transaction list, and aggregated stats for a single address, a set of up to 100 addresses, or an extended public key (xpub/ypub/zpub) across Bitcoin-like and Ethereum-like chains.
+#### Agentic access (1)
 
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Blockchair Agentic Access](https://apis.io/agentic-access/blockchair/blockchair-agentic-access/)
 
-- Address
-- Dashboards
-- Balance
+#### Collections (8)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Blockchair API](https://apis.io/collections/blockchair/open-blockchair/)
+- [Blockchair Address Dashboards API](https://apis.io/collections/blockchair/open-blockchair-address-dashboards-api/)
+- [Blockchair Address Dashboards Block Dashboards API](https://apis.io/collections/blockchair/open-blockchair-block-dashboards-api/)
+- [Blockchair Address Dashboards Broadcast API](https://apis.io/collections/blockchair/open-blockchair-broadcast-api/)
+- [Blockchair Address Dashboards Outputs Database API](https://apis.io/collections/blockchair/open-blockchair-outputs-database-api/)
+- [Blockchair Address Dashboards Raw Data API](https://apis.io/collections/blockchair/open-blockchair-raw-data-api/)
+- [Blockchair Address Dashboards Stats API](https://apis.io/collections/blockchair/open-blockchair-stats-api/)
+- [Blockchair Address Dashboards Transaction Dashboards API](https://apis.io/collections/blockchair/open-blockchair-transaction-dashboards-api/)
 
-### Blockchair Transaction Dashboards API
+#### Security (2)
 
-Transaction dashboards returning a parsed view of one transaction or a set of transactions by hash, including inputs, outputs, fees, and confirmation data, across supported chains.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
+- [Blockchair Authentication](https://apis.io/security/blockchair/blockchair-authentication/)
+- [Blockchair Domain Security](https://apis.io/security/blockchair/blockchair-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Transaction
-- Dashboards
+Published plans, tiers and prices.
 
-#### Properties
+- [Blockchair Plans Pricing](https://apis.io/plans/blockchair/blockchair-plans-pricing/)
 
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Blockchair Block Dashboards API
+Published request limits.
 
-Block dashboards returning a parsed view of one block or a set of blocks by height or hash, including header fields, transaction references, and block statistics, across supported chains.
+- [Blockchair Rate Limits](https://apis.io/rate-limits/blockchair/blockchair-rate-limits/)
 
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Block
-- Dashboards
+- [Blockchair Finops](https://apis.io/finops/blockchair/blockchair-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Blockchair Raw Data API
-
-Raw node-level data for blocks and transactions (and ledgers, accounts, and operations on non-UTXO chains) as returned by the underlying blockchain node, for clients that need the unprocessed payload.
-
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
-
-#### Tags
-
-- Raw Data
-- Node
-
-#### Properties
-
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Blockchair Stats API
-
-Network statistics endpoints returning overall blockchain metrics (blocks, transactions, market data, difficulty, mempool) for a single chain, all chains at once, or cross-chain tokens such as USDT and USDC.
-
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
-
-#### Tags
-
-- Stats
-- Statistics
-- Network
-
-#### Properties
-
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Blockchair Outputs Database API
-
-SQL-like database query interface over the outputs table (and blocks, transactions, and addresses) on Bitcoin-like chains, supporting filtering by column, sorting, aggregation, offset, and limit for analytical queries.
-
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
-
-#### Tags
-
-- Outputs
-- Database
-- Query
-
-#### Properties
-
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Blockchair Broadcast API
-
-Transaction broadcasting endpoint that relays a signed, raw transaction to the network of the selected chain via an HTTP POST.
-
-- **Human URL:** [https://blockchair.com/api/docs](https://blockchair.com/api/docs)
-- **Base URL:** `https://api.blockchair.com`
-
-#### Tags
-
-- Broadcast
-- Push
-- Transaction
-
-#### Properties
-
-- [Documentation](https://blockchair.com/api/docs)
-- [API Reference](https://github.com/Blockchair/Blockchair.Support/blob/master/API_DOCUMENTATION_EN.md)
-- [OpenAPI](openapi/blockchair-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/blockchair.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/blockchair.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/Blockchair)
-- [LinkedIn](https://www.linkedin.com/company/blockchair)
 - [Website](https://blockchair.com)
 - [Documentation](https://blockchair.com/api/docs)
-- [Plans](plans/blockchair-plans-pricing.yml)
-- [Rate Limits](rate-limits/blockchair-rate-limits.yml)
-- [Fin Ops](finops/blockchair-finops.yml)
+- [GitHub](https://github.com/Blockchair)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.8** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 45.9 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/blockchair/](https://apis.io/providers/blockchair/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Blockchair: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/blockchair/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
